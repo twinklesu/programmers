@@ -5,15 +5,13 @@ def solution(N, stages):
     for n in stages:
         for i in range(1, n + 1):
             playerN[i] += 1
-
     fail = []
     for i in range(1, N + 1):
-        acc = sum(playerN[i:])
-        if acc != 0:
+        if playerN[i] != 0:
             if playerN[i] == 0:
                 fail.append([i, 1])
             else:
-                fail.append([i, (playerN[i] - playerN[i + 1]) / acc])
+                fail.append([i, (playerN[i] - playerN[i + 1]) / playerN[i]])
         else:
             fail.append([i, 0])
 
